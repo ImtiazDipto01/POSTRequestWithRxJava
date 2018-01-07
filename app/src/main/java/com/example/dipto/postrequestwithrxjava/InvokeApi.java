@@ -25,7 +25,7 @@ public class InvokeApi {
         retrofitInterface = RetrofitClient.getRetrofitClient().create(RetrofitInterface.class) ;
 
 
-        retrofitInterface.getResponseResult("dha")
+        retrofitInterface.getResponseResult(key)
                          .subscribeOn(Schedulers.io())
                          .observeOn(AndroidSchedulers.mainThread())
                          .subscribe(new Observer<ResponseRoot>() {
@@ -43,7 +43,7 @@ public class InvokeApi {
                              @Override
                              public void onError(Throwable e) {
                                  mainActivityRequestComplete.requestCompleteError("Searver Error");
-                                 Log.d("+++onError+++","yes") ;
+                                 Log.d("+++onError+++", String.valueOf(e)) ;
                              }
 
                              @Override
